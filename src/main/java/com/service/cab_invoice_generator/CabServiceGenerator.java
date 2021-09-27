@@ -26,6 +26,12 @@ public class CabServiceGenerator {
 
 	}
 
+	/**
+	 * method to calculate total fare for multiple rides
+	 * 
+	 * @param rides
+	 * @return
+	 */
 	public double calculateFare(Ride[] rides) {
 		double totalFare = 0;
 		for (Ride ride : rides) {
@@ -35,6 +41,12 @@ public class CabServiceGenerator {
 
 	}
 
+	/**
+	 * method to count no of rides
+	 * 
+	 * @param rides
+	 * @return
+	 */
 	public int count(Ride[] rides) {
 		int count = 0;
 		for (Ride ride : rides) {
@@ -43,6 +55,13 @@ public class CabServiceGenerator {
 		return count;
 	}
 
+	/**
+	 * method to find average of total fare
+	 * 
+	 * @param totalFare
+	 * @param count
+	 * @return
+	 */
 	public double calculateAverage(double totalFare, int count) {
 		return totalFare / count;
 	}
