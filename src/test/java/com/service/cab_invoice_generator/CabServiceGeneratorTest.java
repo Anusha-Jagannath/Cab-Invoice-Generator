@@ -74,5 +74,31 @@ public class CabServiceGeneratorTest {
 		Assert.assertEquals(15.0, average);
 		System.out.println(invoiceSummary);
 	}
+	
+	
+	/**
+	 * test case for calculating total fare for premium ride
+	 */
+	@Test
+	public void givenDistanceAndTimeForPremium_ShouldReturnTotalFare() {
+		double distance = 2.0;
+		int time = 5;
+		CabServiceGenerator cabServiceGenerator = new CabServiceGenerator();
+		double fare = cabServiceGenerator.calculateFareForPremium(distance, time);
+		Assert.assertEquals(40.0, fare);
+
+	}
+
+	/**
+	 * test case total fare is less than minimum fare should return minimum fare for premium ride
+	 */
+	@Test
+	public void givenLessDistanceAndTimeForPremium_ShouldReturnMiniumumFare() {
+		double distance = 0.1;
+		int time = 2;
+		CabServiceGenerator cabServiceGenerator = new CabServiceGenerator();
+		double fare = cabServiceGenerator.calculateFareForPremium(distance, time);
+		Assert.assertEquals(20.0, fare);
+	}
 
 }
