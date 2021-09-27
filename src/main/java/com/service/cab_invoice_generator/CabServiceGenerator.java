@@ -8,6 +8,11 @@ public class CabServiceGenerator {
 	private static final double MINIMUM_COST_PER_KM = 10;
 	private static final int COST_PER_MINUTE = 1;
 	private static final double MINIMUM_FARE = 5;
+	
+	
+	private static final double MINIMUM_COST_PER_KM_PREMIUM = 15;
+	private static final int COST_PER_MINUTE_PREMIUM= 2;
+	private static final double MINIMUM_FARE_PREMIUM = 20;
 
 	/**
 	 * method to find total fare given distance and time
@@ -64,5 +69,13 @@ public class CabServiceGenerator {
 	 */
 	public double calculateAverage(double totalFare, int count) {
 		return totalFare / count;
+	}
+
+	public double calculateFareForPremium(double distance, int time) {
+		double fare = distance * MINIMUM_COST_PER_KM_PREMIUM + time * COST_PER_MINUTE_PREMIUM;
+		if (fare < 20) {
+			return MINIMUM_FARE_PREMIUM;
+		} else
+			return fare;
 	}
 }
