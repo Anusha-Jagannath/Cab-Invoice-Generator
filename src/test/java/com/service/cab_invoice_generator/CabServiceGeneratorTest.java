@@ -40,8 +40,24 @@ public class CabServiceGeneratorTest {
 				         new Ride(0.1,1),
 						};
 		double fare = cabServiceGenerator.calculateFare(rides);
-		System.out.println(fare);
 		Assert.assertEquals(30.0, fare);
+	}
+	
+	/**
+	 * test case to calculate total no of rides and average fare
+	 */
+	@Test
+	public void givenMultipleRides_ShouldreturnCountOfRidesAndAverageFarePerRide() {
+		CabServiceGenerator cabServiceGenerator = new CabServiceGenerator();
+		Ride[] rides = { new Ride(2.0,5),
+				         new Ride(0.1,1),
+						};
+		double fare = cabServiceGenerator.calculateFare(rides);
+		int count = cabServiceGenerator.count(rides);
+		double average = cabServiceGenerator.calculateAverage(fare, count);
+		System.out.println(average);
+		Assert.assertEquals(15.0, average);
+		
 	}
 	
 	

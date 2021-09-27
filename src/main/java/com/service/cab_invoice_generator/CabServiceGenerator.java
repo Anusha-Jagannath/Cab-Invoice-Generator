@@ -28,11 +28,22 @@ public class CabServiceGenerator {
 
 	public double calculateFare(Ride[] rides) {
 		double totalFare = 0;
-		for(Ride ride :rides) {
-			totalFare += this.calculateFare(ride.distance,ride.time);
+		for (Ride ride : rides) {
+			totalFare += this.calculateFare(ride.distance, ride.time);
 		}
 		return totalFare;
-			
+
 	}
 
+	public int count(Ride[] rides) {
+		int count = 0;
+		for (Ride ride : rides) {
+			count += 1;
+		}
+		return count;
+	}
+
+	public double calculateAverage(double totalFare, int count) {
+		return totalFare / count;
+	}
 }
